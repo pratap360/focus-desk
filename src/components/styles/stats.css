@@ -1,0 +1,29 @@
+.stats-title{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.stats-title h3{
+    font-size: 2rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stats-container{
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.focus-stats{
+    display: grid;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.tasks-stats{
+    margin: 1rem;
+    padding: 1rem;
+}
