@@ -13,7 +13,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.quote-container{
+.quote-container {
     padding: 0.7rem;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
@@ -27,8 +27,6 @@
     justify-content: space-around;
     padding: 2rem;
     gap: 2rem;
-    /* margin: 2rem auto; */
-    /* max-width: 1200px; */
 }
 
 .focus-stats {
@@ -38,6 +36,32 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     flex: 1;
+}
+
+.focus-data {
+    margin-top: 1rem;
+}
+
+.focus-table ,
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.focus-table th,
+.focus-table td ,
+.tasks-table th,
+.tasks-table td{
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.focus-table th,
+.tasks-table th {
+    background-color: #f5f5f538;
+    font-weight: bold;
 }
 
 .tasks-stats {
@@ -50,10 +74,12 @@
 }
 
 /* Add animations for the stats */
-.focus-stats, .tasks-stats {
+.focus-stats,
+.tasks-stats {
     transition: transform 0.3s ease;
 }
 
-.focus-stats:hover, .tasks-stats:hover {
+.focus-stats:hover,
+.tasks-stats:hover {
     transform: translateY(-5px);
 }

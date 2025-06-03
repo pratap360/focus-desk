@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import NavBar from "./NavBar";
 import "./styles/task.css";
 import uselocalStorage from "../hooks/uselocalStorage";
@@ -14,6 +14,38 @@ export default function Task() {
     { id: 2, text: "", done: false , isDefault:false},
     { id: 3, text: "", done: false , isDefault:false},
   ]);
+
+  const [completedTask,setCompletedTask] = useState(0)
+  const [totalTasks,setTotalTasks] = useState(() => {
+    const task_save = localStorage.getItem('save-tasks')
+    const initialValue = JSON.parse(task_save)
+    return initialValue || 0
+  })
+
+  useEffect(() => {
+    const completedCount = tasks.filter(task => task.done).length
+    setCompletedTask(completedCount)
+
+    const nonEmptyTasks = tasks.filter(task => task.text.trim() !== "").length
+    setTotalTasks(nonEmptyTasks)
+
+    localStorage.setItem('save-tasks',JSON.stringify(nonEmptyTasks))
+  },[tasks])
+
+  const TaskStats = () => {
+    <div className="task-stats">
+      <p>Completed: {completedTask}/ {totalTasks}</p>
+      <div className="progress-bar">
+        <div className="progress"
+        style={
+          {
+            width:`${totalTasks ? (completedTask/totalTasks * 100) : 0}%`
+          }
+        }
+        ></div>
+      </div>
+    </div>
+  }
 
   const handleTaskChange = (id, newText) => {
     setTask(
@@ -59,6 +91,7 @@ export default function Task() {
       <div className="title-container">
         <h3>TODO's</h3>
         <p>Top {tasks.length} Most Important Tasks of the Day</p>
+        <TaskStats />
       </div>
 
       <div className="task-container">

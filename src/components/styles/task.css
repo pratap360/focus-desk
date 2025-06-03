@@ -115,3 +115,23 @@
     background-color: #cccccc;
     cursor: not-allowed;
   }
+
+  .task-stats {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .progress-bar {
+    width: 200px;
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    margin: 10px auto;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.3s ease;
+  }

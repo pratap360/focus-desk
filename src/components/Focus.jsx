@@ -10,6 +10,22 @@ export default function Focus() {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(new Audio("../src/assets/music/Yummy.mp3"))
 
+  const [completedSessions,setCompletedSessions] = useState(0)
+  const [todaySessions,setTodaySessions] = useState(() => {
+    const saved = localStorage.getItem('today-Pomodoros')
+    const initialValue = JSON.parse(saved)
+    return initialValue || 0;
+  });
+
+  useEffect(() => {
+    const lastResetDate = localStorage.getItem('lastResetDate')
+    const today = new Date().toDateString()
+    if(lastResetDate !== today){
+      setTodaySessions(0)
+      localStorage.setItem('lastResetDate',today)
+    }
+  },[])
+
   useEffect(() => {
     let interval;
 
@@ -19,6 +35,12 @@ export default function Focus() {
           if (minutes === 0) {
             clearInterval(interval);
             setIsRunning(false);
+            setCompletedSessions(prev => prev + 1)
+            setTodaySessions(prep => {
+              const newValue = prep + 1;
+              localStorage.setItem('todayPomodoros',JSON.stringify(newValue))
+              return newValue;
+            });
           } else {
             setMinutes(minutes - 1);
             setSeconds(59);
@@ -61,6 +83,10 @@ export default function Focus() {
             {String(minutes).padStart(2, "0")}:
             {String(seconds).padStart(2, "0")}
           </div>
+        </div>
+        <div className="session-stats">
+          <p>Today's Session: {todaySessions}</p>
+          <p>Current Session: {completedSessions}</p>
         </div>
         <div className="timer-controls">
           <button onClick={toggleTimer}>{isRunning ? "Pause" : "Play"}</button>

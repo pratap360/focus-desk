@@ -55,3 +55,17 @@
   .music-control button:hover{
     background-color: #0b470d;
   }
+
+  .session-stats {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+  
+  .session-stats p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #d1cfcf;
+  }
