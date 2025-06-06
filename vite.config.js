@@ -13,6 +13,9 @@ export default defineConfig({
       short_name: 'FocusDeck',
       description: 'A productivity tool to help you focus on your tasks',
       theme_color: '#ffffff',
+      background_color: '#ffffff',
+        display: 'standalone',
+        start_url: '/',
       icons: [
         {
           src: 'src/assets/icons/app-icon-192x192.png',
@@ -20,12 +23,29 @@ export default defineConfig({
           type: 'image/png'
         },
         {
-          src: 'src/assets/icons/app-icon-chrome-512x512.png',
-          sizes: '32x32',
-          type: 'image/png'
+          src: 'src/assets/icons/app-icon-512x512.png',
+          sizes: '512x512', 
+          type: 'image/png',
+          purpose: 'any maskable' 
         }
       ]
-    }
+    },
+    // workbox: {
+    //   globPatterns: ['**/*.{js,css,html,png,jpg,svg}'],
+    //   runtimeCaching: [
+    //     {
+    //       urlPattern: /^https:\/\/api\.quotable\.io\/random/,
+    //       handler: 'NetworkFirst',
+    //       options: {
+    //         cacheName: 'quotes-cache',
+    //         expiration: {
+    //           maxEntries: 10,
+    //           maxAgeSeconds: 24 * 60 * 60 
+    //         }
+    //       }
+    //     }
+    //   ]
+    // }
   })
 
 

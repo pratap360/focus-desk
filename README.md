@@ -1,12 +1,62 @@
-# React + Vite
+# 🧠 FocusDeck
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**FocusDeck** is a minimal Pomodoro timer and daily task manager designed to help you stay productive and focused. It tracks your completed Pomodoro sessions per day, provides a stats view, and works as a Progressive Web App (PWA) and Chrome Extension.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- ⏱️ Pomodoro timer (25/5 cycle)
+- ✅ Task manager (add, complete, delete tasks)
+- 📊 Daily session tracking
+- 📲 Installable PWA support
+- 🧩 Chrome Extension (popup)
+<!-- - 📅 Stats page with last 7 days summary -->
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- React + Vite
+- basic CSS 
+- React Router
+- LocalStorage for persistent data
+- `vite-plugin-pwa` for PWA support
+- Chrome Extension using Manifest V3
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/pratap360/focusdeck.git
+```
+``` bash
+cd focusdeck
+```
+
+### 2. Install Dependency
+
+``` bash
+npm install
+```
+
+### 3. Run the app
+``` bash
+npm run dev
+```
+
+### 4.Build for Productin
+``` bash
+npm run preview
+```
+
+### 📦 Load as Chrome Extension
+Run ```npm run build```
+
+Go to ```chrome://extensions```
+
+Enable Developer Mode
+
+Click "Load unpacked" and select the dist/ folder
