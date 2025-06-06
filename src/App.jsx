@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes,Route,Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login"
 import Focus from "./components/Focus";
@@ -11,18 +11,20 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element= {
-        <>
-        <Home/>
-         <Link to ='/login'>
-         <button>Login</button>
-         </Link>
-       </>
-      }/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/focus' element={<Focus/>}/>
-        <Route path='/task' element={<Task/>}/>
-        <Route path='/stats' element={<Stats/>}/>
+        <Route path="/" element={
+          <>
+            <div className="app-contianer">
+              <Home />
+              <Link to='/login'>
+                <button>Login</button>
+              </Link>
+            </div>
+          </>
+        } />
+        <Route path='/login' element={<Login />} />
+        <Route path='/focus' element={<Focus />} />
+        <Route path='/task' element={<Task />} />
+        <Route path='/stats' element={<Stats />} />
       </Routes>
     </Router>
   );

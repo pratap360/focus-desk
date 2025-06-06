@@ -106,10 +106,11 @@ export default function Focus() {
         <div className="timer-controls">
           <button onClick={toggleTimer}>{isRunning ? "Pause" : "Play"}</button>
           <button onClick={resetTimer}>Reset</button>
-        </div>
-        <div className="music-control">
           <button onClick={musicPlayer}>{isPlaying? "Pause Music":"Play Music"}</button>
         </div>
+        {/* <div className="music-control">
+          
+        </div> */}
       </div>
     </>
   );
