@@ -1,12 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import "./styles/stats.css";
-import uselocalStorage from "../hooks/uselocalStorage";
+
 
 export default function Stats() {
   const [quote, setQuote] = useState({ content: "", author: "" });
   const todaySessions = JSON.parse(localStorage.getItem("todayPomodoros")) || 0;
-  // const [userData] = uselocalStorage("userData",{})
+  
+  const todos = JSON.parse(localStorage.getItem("todos")) || [];
+  const completedTasks = todos.filter(task => task.done && task.text.trim() !== "").length;
+  const totalTasks = todos.filter(task => task.text.trim() !== "").length;
+  const completionRate = totalTasks ? Math.round((completedTasks / totalTasks) * 100) : 0;
+  
+  // const [completedTasks, setCompletedTasks] = useState(JSON.parse(localStorage.getItem("completedTask")) || 0);
   useEffect(() => {
     const fetchQuote = async () => {
       try {
@@ -29,13 +35,8 @@ export default function Stats() {
 
   const data = localStorage.getItem("userData");
   const res = JSON.parse(data);
-  console.log("User Name Data:", res.username);
+  // console.log("User Name Data:", res?.username);
 
-  const completedTasks = JSON.parse(localStorage.getItem("completedTask")) || 0;
-  const totalTasks = JSON.parse(localStorage.getItem("save-tasks")) || 0;
-  const completionRate = totalTasks
-    ? Math.round((completedTasks / totalTasks) * 100)
-    : 0;
 
   return (
     <>

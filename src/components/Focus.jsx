@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import "../components/styles/focus.css";
 
@@ -83,6 +82,22 @@ export default function Focus() {
             {String(minutes).padStart(2, "0")}:
             {String(seconds).padStart(2, "0")}
           </div>
+        </div>
+        <div className="act-btns">
+        <div className="focus-btn">
+          <button onClick={() => {
+            setMinutes(25);
+            setSeconds(0);
+            setIsRunning(false);
+          }}>Focus on work</button>
+        </div>
+        <div className="break-btn">
+          <button onClick={() => {
+            setMinutes(5);
+            setSeconds(0);
+            setIsRunning(false);
+          }}>Take a Break</button>
+        </div>
         </div>
         <div className="session-stats">
           <p>Today's Session: {todaySessions}</p>
